@@ -12,10 +12,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Posts;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// ROUTE PAR DEFAUT
+// PATTERN: /
+// CTRL: Posts
+// ACTION: index
+Route::get('/', [Posts::class, 'index'])->name('blog');
+
+// AJAX MORE POSTS
+// PATTERN: /posts/ajax/more
+// CTRL: Posts
+// ACTION: more
+Route::get('/posts/ajax/more/', [Posts::class, 'more'])->name('posts.ajax.more');
+
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
