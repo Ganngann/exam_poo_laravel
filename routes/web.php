@@ -12,19 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\Posts;
+use App\Http\Controllers\PostController;
 
 // ROUTE PAR DEFAUT
 // PATTERN: /
 // CTRL: Posts
 // ACTION: index
-Route::get('/', [Posts::class, 'index'])->name('blog');
+Route::get('/', [PostController::class, 'index'])->name('blog');
 
 // AJAX MORE POSTS
 // PATTERN: /posts/ajax/more
 // CTRL: Posts
 // ACTION: more
-Route::get('/posts/ajax/more/', [Posts::class, 'more'])->name('posts.ajax.more');
+Route::get('/posts/ajax/more/', [PostController::class, 'more'])->name('posts.ajax.more');
 
 
 
