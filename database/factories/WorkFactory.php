@@ -22,7 +22,13 @@ class WorkFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->words(4,true),
+            'content' => $this->faker->paragraph(3),
+            'image' => $this->faker->numberBetween($min = 1, $max = 4),
+            // 'image' => $this->faker->image(storage_path('assets\img\blog'),640,480, null, false),
+            'inSlider' => $this->faker->numberBetween($min = 0, $max = 1),
+            'created_at' => $this->faker->dateTimeBetween('-20 days', now()),
+            'client_id' => $this->faker->numberBetween($min = 1, $max = 5),
         ];
     }
 }

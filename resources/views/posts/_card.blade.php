@@ -1,25 +1,30 @@
 {{--
-  Variable disponible
-    - $post obj
- --}}
-         <div class="col-md-6 d-flex ftco-animate">
-           <div class="blog-entry justify-content-end">
-             <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}" class="block-20" style="background-image: url('{{ asset('assets/images/' . $post->image) }}');">
-             </a>
-             <div class="text p-4 float-right d-block">
-               <div class="topper d-flex align-items-center">
-                 <div class="one py-2 pl-3 pr-1 align-self-stretch">
-                   <span class="day">{{ \Carbon\Carbon::parse($post->created_at)->format('d') }}</span>
-                 </div>
-                 <div class="two pl-0 pr-3 py-2 align-self-stretch">
-                   <span class="yr">{{ \Carbon\Carbon::parse($post->created_at)->format('Y') }}</span>
-                   <span class="mos">{{ \Carbon\Carbon::parse($post->created_at)->format('F') }}</span>
-                 </div>
-               </div>
-               <h3 class="heading mb-3"><a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}">{{ $post->title }}</a></h3>
-               <p>{{ $post->resume }}</p>
-               <p><a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Read more</a></p>
-             </div>
-           </div>
-         </div>
+Variable disponible
+- $post obj
+--}}
+<!-- Blog Post Excerpt -->
+<div class="col-sm-6">
+    <div class="blog-post blog-single-post">
+        <div class="single-post-title">
+            <h2>{{ $post->title }}</h2>
+        </div>
 
+        <div class="single-post-image">
+            <img src="{{ asset('assets/img/blog/' . $post->image) }}.jpg" alt="{{ $post->title }}">
+        </div>
+
+        <div class="single-post-info">
+            <i class="glyphicon glyphicon-time"></i>{{ \Carbon\Carbon::parse($post->created_at)->format('d M, Y') }} <a
+                href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
+        </div>
+
+        <div class="single-post-content">
+            <p>
+                {{ $post->content }}
+            </p>
+            <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}"
+                class="btn">Read more</a>
+        </div>
+    </div>
+</div>
+<!-- End Blog Post Excerpt -->

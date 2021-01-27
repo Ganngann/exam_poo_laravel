@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class CategorieSeeder extends Seeder
+class works_has_tags extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +13,6 @@ class CategorieSeeder extends Seeder
      */
     public function run()
     {
-        Categorie::factory()
-            ->count(50)
-            ->create();
+        //
     }
 }

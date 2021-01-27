@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Categorie;
+use App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CategorieFactory extends Factory
+class works_has_tagsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Categorie::class;
+    protected $model = Model::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,8 @@ class CategorieFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(2,true),
-            'created_at' => $this->faker->dateTimeBetween('-20 days', now()),
+        'work_id' => $this->faker->numberBetween($min = 1, $max = 10),
+        'tag_id' => $this->faker->numberBetween($min = 1, $max = 10),
         ];
     }
 }

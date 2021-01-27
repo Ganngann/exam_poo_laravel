@@ -26,6 +26,16 @@ Route::get('/', [PostController::class, 'index'])->name('blog');
 // ACTION: more
 Route::get('/posts/ajax/more/', [PostController::class, 'more'])->name('posts.ajax.more');
 
+// DETAILS D'UN POST
+// PATTERN: /posts/post/slug
+// CTRL: Posts
+// ACTION: show
+Route::get('/posts/{post}/{slug}', [PostController::class, 'show'])
+    ->where('post', '[1-9][0-9]*')
+    ->where('slug', '[a-z0-9][a-z0-9\-]*')
+    ->name('posts.show');
+
+
 
 
 

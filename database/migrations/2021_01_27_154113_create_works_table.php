@@ -15,7 +15,12 @@ class CreateWorksTable extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
+            $table->text('content');
+            $table->string('image', 45);
+            $table->tinyInteger('inSlider');
             $table->timestamps();
+            $table->foreignId('client_id')->constrained();
         });
     }
 
