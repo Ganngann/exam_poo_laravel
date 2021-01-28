@@ -5,7 +5,7 @@ Variables disponibles
 @extends('templates.page')
 
 @section('title')
-    Portfolio
+Our Portfolio
 @endsection
 
 @section('scripts')
@@ -17,23 +17,25 @@ Variables disponibles
     <div class="section">
         <div class="container">
             <div class="row">
+            <div class="col-sm-12">
+                    <h2>We are leading company</h2>
+                    <h3>Specializing in Wordpress Theme Development</h3>
+                    <p>
+                        Donec elementum mi vitae enim fermentum lobortis. In hac habitasse platea dictumst. Ut pellentesque, orci sed mattis consequat, libero ante lacinia arcu, ac porta lacus urna in lorem. Praesent consectetur tristique augue, eget elementum diam suscipit id. Donec elementum mi vitae enim fermentum lobortis.
+                    </p>
 
-                @include('works._list')
-
-                <!-- Pagination -->
-                <div class="pagination-wrapper ">
-                    <ul class="pagination pagination-sm">
-                        <li class="disabled"><a href="#">Previous</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Next</a></li>
-                    </ul>
                 </div>
-
             </div>
         </div>
     </div>
+
+
+    @include('works._list')
+
+
+
+
+
+
+
 @endsection
