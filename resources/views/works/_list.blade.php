@@ -9,7 +9,7 @@ Variable disponible
         <div class="row">
 
     <ul class="grid cs-style-2">
-        @each('works._card', $works, 'work')
+        @each('works._card_3', $works, 'work')
 
 
     </ul>
