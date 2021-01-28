@@ -12,10 +12,9 @@ Variables disponibles
             </div>
 
             <ul class="grid cs-style-2">
-                @include('works._card_3')
-                @include('works._card_3')
-                @include('works._card_3')
-                @include('works._card_3')
+                @foreach ($works as $work)
+                    @include('works._card_3')
+                @endforeach
             </ul>
 
 

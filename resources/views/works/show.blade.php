@@ -46,6 +46,12 @@ Variables disponibles
 
     <hr>
 
-    @include('works._similarWorks')
+    @include('works._similarWorks', ['works' => \App\Models\Work::whereHas('tags', function ($q) use ($work) {
+    return $q->whereIn('name', $work->tags->pluck('name'));
+    })
+    ->where('id', '!=', $work->id) // So you won't fetch same post
+    ->take(4)
+    ->get()])
+
 
 @endsection
