@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BASICA! A Free Bootstrap3 HTML5 CSS3 Template by Vactual Art</title>
+    <title>BASICA! - @yield('title')</title>
 
 
     <!-- Bootstrap Core CSS -->

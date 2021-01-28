@@ -2,7 +2,7 @@
 Variables disponibles
 - $posts ARRAY(Post)
 --}}
-@extends('templates.index')
+@extends('templates.page')
 
 @section('title')
     Blog

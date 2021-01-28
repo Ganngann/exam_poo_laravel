@@ -18,9 +18,7 @@
 
     @include('templates.partials._nav')
 
-
-    @include('templates.partials._h1')
-
+    @yield('hero')
 
     @include('templates.partials._main')
 
