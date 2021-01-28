@@ -14,7 +14,7 @@
                 <li class="#TODO active"><a href="{{ route('blog') }}">Home</a></li>
                 <li><a href="{{ route('works.index') }}">Portfolio</a></li>
                 <li><a href="{{ route('posts.index') }}">Blog</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="{{ route('pages.contact') }}">Contact</a></li>
             </ul>
         </div>
     </div>

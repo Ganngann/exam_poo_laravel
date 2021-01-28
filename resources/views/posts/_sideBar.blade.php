@@ -5,19 +5,17 @@ Variables disponibles
 
 <!-- Sidebar -->
 <div class="col-sm-4 blog-sidebar">
-    <h4>#TODO Recent Posts</h4>
+    <h4>Recent Posts</h4>
+
     <ul class="recent-posts">
-        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="#">Sed sit amet metus sit</a></li>
-        <li><a href="#">Nunc et diam volutpat tellus ultrices</a></li>
-        <li><a href="#">Quisque sollicitudin cursus felis</a></li>
+        @include('posts._recents', ['posts' => \App\Models\Post::orderBy('created_at', 'DESC')->take(5)->get()])
     </ul>
-    <h4>#TODO Categories</h4>
+
+    {{-- @include('categories._index', ['categories' => \App\Models\Categorie::orderBy('name', 'ASC')->get()]) --}}
+
+    <h4>Categories</h4>
     <ul class="blog-categories">
-        <li><a href="#">Lorem ipsum</a></li>
-        <li><a href="#">Sed sit amet metus</a></li>
-        <li><a href="#">Nunc et diam </a></li>
-        <li><a href="#">Quisque</a></li>
+        @include('categories._index', ['categories' => \App\Models\Categorie::orderBy('name', 'ASC')->get()])
     </ul>
 
 </div>

@@ -61,6 +61,22 @@ Route::get('/works/{work}/{slug}', [WorkController::class, 'show'])
 
 
 
+// DETAILS D'UNE PAGE
+// PATTERN: /works/work/slug
+// CTRL: WorkController
+// ACTION: show
+
+// CONTACT PAGE
+// PATTERN: /contact
+// CTRL: NA
+// ACTION: NA
+// Route::get('/contact', [Contacts::class, 'form'])->name('contacts.form');
+
+Route::get('/contact', function () {return view('pages.contact');})->name('pages.contact');
+
+
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
