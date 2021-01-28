@@ -20,7 +20,7 @@
 
     @yield('hero')
 
-    @include('templates.partials._main')
+    @yield('content')
 
 
     @include('templates.partials._footer')

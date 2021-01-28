@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\WorkController;
+
 
 // ROUTE PAR DEFAUT
 // PATTERN: /
@@ -20,11 +22,17 @@ use App\Http\Controllers\PostController;
 // ACTION: index
 Route::get('/', [PostController::class, 'index'])->name('blog');
 
+// LISTE DES POSTS
+// PATTERN: /posts
+// CTRL: PostController
+// ACTION: index
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
 // AJAX MORE POSTS
 // PATTERN: /posts/ajax/more
 // CTRL: Posts
 // ACTION: more
-Route::get('/posts/ajax/more/', [PostController::class, 'more'])->name('posts.ajax.more');
+// Route::get('/posts/ajax/more/', [PostController::class, 'more'])->name('posts.ajax.more');
 
 // DETAILS D'UN POST
 // PATTERN: /posts/post/slug
@@ -36,6 +44,20 @@ Route::get('/posts/{post}/{slug}', [PostController::class, 'show'])
     ->name('posts.show');
 
 
+// LISTE DES WORKS
+// PATTERN: /works
+// CTRL: WorkController
+// ACTION: index
+Route::get('/works', [WorkController::class, 'index'])->name('works.index');
+
+// DETAILS D'UN WORK
+// PATTERN: /works/work/slug
+// CTRL: WorkController
+// ACTION: show
+Route::get('/works/{work}/{slug}', [WorkController::class, 'show'])
+    ->where('work', '[1-9][0-9]*')
+    ->where('slug', '[a-z0-9][a-z0-9\-]*')
+    ->name('works.show');
 
 
 

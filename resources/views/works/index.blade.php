@@ -1,15 +1,15 @@
 {{--
 Variables disponibles
-- $posts ARRAY(Post)
+- $works ARRAY(Work)
 --}}
 @extends('templates.page')
 
 @section('title')
-    Blog
+    Portfolio
 @endsection
 
 @section('scripts')
-    {{-- <script src="{{ asset('assets/js/posts/index.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/works/index.js') }}"></script>
     --}}
 @endsection
 
@@ -18,7 +18,7 @@ Variables disponibles
         <div class="container">
             <div class="row">
 
-                @include('posts._list')
+                @include('works._list')
 
                 <!-- Pagination -->
                 <div class="pagination-wrapper ">

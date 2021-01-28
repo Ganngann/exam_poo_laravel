@@ -22,7 +22,7 @@ class WorkFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->words(4,true),
+            'title' => $this->faker->words(4, true),
             'content' => $this->faker->paragraph(3),
             'image' => $this->faker->numberBetween($min = 1, $max = 4),
             // 'image' => $this->faker->image(storage_path('assets\img\blog'),640,480, null, false),
@@ -32,3 +32,5 @@ class WorkFactory extends Factory
         ];
     }
 }
+// tinker: \App\Models\Type::factory()->count(10)->has(\App\Models\Produit::factory()->count(2))->create()
+// tinker: \App\Models\Type::factory()->count(10)->hasProduits(2)->create()

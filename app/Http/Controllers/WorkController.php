@@ -12,9 +12,12 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(INT $limit = 10)
     {
-        //
+        $works = Work::orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+        return view('works.index', compact('works'));
     }
 
     /**
@@ -46,7 +49,7 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        //
+        return view('works.show', compact('work'));
     }
 
     /**
