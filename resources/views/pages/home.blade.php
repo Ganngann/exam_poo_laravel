@@ -15,9 +15,9 @@ Variables disponibles
 @section('content')
 
     @include('works._slide')
-
-
     <!--/#main-slider-->
+
+
 
     <!-- Our Portfolio -->
 
