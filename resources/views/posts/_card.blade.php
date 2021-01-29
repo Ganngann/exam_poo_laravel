@@ -20,7 +20,7 @@ Variable disponible
 
         <div class="single-post-content">
             <p>
-                {{ $post->content }}
+                {!! Str::words($post->content, 20,) !!}
             </p>
             <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}"
                 class="btn">Read more</a>

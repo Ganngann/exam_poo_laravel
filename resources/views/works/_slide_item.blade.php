@@ -13,7 +13,9 @@ Variable disponible
                         {{ $work->title }}
                     </h2>
                     <p class="animation animated-item-2">
-                        {!! $work->content !!}
+
+                        {!! Str::words($work->content, 20,) !!}
+
                     </p>
                     <br />
                     <a class="btn btn-md animation animated-item-3"

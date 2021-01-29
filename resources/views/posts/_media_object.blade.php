@@ -12,8 +12,7 @@ Variable disponible
         </div>
         <div class="date">{{ \Carbon\Carbon::parse($post->created_at)->format('d M, Y') }}</div>
         <div class="intro">
-            {{-- #TODO racourcir longueur du post --}}
-            {!! $post->content !!}
+            {!! Str::words($post->content, 20,) !!}
             <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}">Read more...</a>
         </div>
     </div>
