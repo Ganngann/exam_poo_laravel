@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WorkController;
 
+//TODO separer les routeurs
 
 // ROUTE PAR DEFAUT
 // PATTERN: /
-// CTRL: Posts
-// ACTION: index
-Route::get('/', [PostController::class, 'index'])->name('blog');
+// CTRL: NA
+// ACTION: NA
+Route::get('/', function () {return view('pages.home');})->name('home');
+
 
 // LISTE DES POSTS
 // PATTERN: /posts

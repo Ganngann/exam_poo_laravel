@@ -11,7 +11,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="#TODO active"><a href="{{ route('blog') }}">Home</a></li>
+                <li class="#TODO active"><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('works.index') }}">Portfolio</a></li>
                 <li><a href="{{ route('posts.index') }}">Blog</a></li>
                 <li><a href="{{ route('pages.contact') }}">Contact</a></li>

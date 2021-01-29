@@ -8,7 +8,7 @@ Variables disponibles
         <div class="row">
 
             <div class="section-title">
-                <h1>#TODO Similar Works</h1>
+                <h1>Similar Works</h1>
             </div>
 
             <ul class="grid cs-style-2">

@@ -18,7 +18,8 @@ Variables disponibles
         <div class="container">
             <div class="row">
 
-                @include('posts._list')
+                @each('posts._card', $posts, 'post')
+
 
                 <!-- Pagination -->
                 <div class="pagination-wrapper ">
