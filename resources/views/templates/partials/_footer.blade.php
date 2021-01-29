@@ -18,10 +18,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                     ut laoreet dolore magna aliquam.</p>
                 <div>
-                    <img src="img/icons/facebook.png" width="32" alt="Facebook">
-                    <img src="img/icons/twitter.png" width="32" alt="Twitter">
-                    <img src="img/icons/linkedin.png" width="32" alt="LinkedIn">
-                    <img src="img/icons/rss.png" width="32" alt="RSS Feed">
+                    <img src="{{ asset('assets/') }}/img/icons/facebook.png" width="32" alt="Facebook">
+                    <img src="{{ asset('assets/') }}/img/icons/twitter.png" width="32" alt="Twitter">
+                    <img src="{{ asset('assets/') }}/img/icons/linkedin.png" width="32" alt="LinkedIn">
+                    <img src="{{ asset('assets/') }}/img/icons/rss.png" width="32" alt="RSS Feed">
                 </div>
             </div>
             <div class="col-footer col-md-4 col-xs-6">

@@ -12,7 +12,7 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(INT $limit = 10)
+    public function index(INT $limit = 6)
     {
         $works = Work::orderBy('created_at', 'desc')
             ->take($limit)
