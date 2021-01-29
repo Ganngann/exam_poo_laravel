@@ -21,17 +21,13 @@ Variables disponibles
                 @each('posts._card', $posts, 'post')
 
 
+                {{-- {{ $works = \App\Models\Work::>get()simplePaginate(10) }} --}}
+
+
                 <!-- Pagination -->
-                <div class="pagination-wrapper ">
-                    <ul class="pagination pagination-sm">
-                        <li class="disabled"><a href="#">Previous</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Next</a></li>
-                    </ul>
+                <div class="pagination-wrapper">
+                    {{-- {{ $posts->onEachSide(3)->links('pagination::bootstrap-4') }} --}}
+                    {{ $posts->links('pagination::bootstrap-4') }}
                 </div>
 
             </div>

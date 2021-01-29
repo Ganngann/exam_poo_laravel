@@ -13,10 +13,11 @@ class PostController extends Controller
      * @param  integer $limit [description]
      * @return \Illuminate\Http\Response
      */
-    public function index(INT $limit = 10) {
-        $posts = Post::orderBy('created_at', 'desc')
-                    -> take($limit)
-                    -> get();
+    public function index(INT $limit = 4) {
+        // $posts = Post::orderBy('created_at', 'desc')
+        //             -> take($limit)
+        //             -> get();
+        $posts = Post::orderBy('created_at', 'desc')->paginate($limit);
         return view('posts.index', compact('posts'));
       }
 
