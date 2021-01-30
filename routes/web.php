@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/posts.php';
 require __DIR__ . '/works.php';
-require __DIR__ . '/back.php';
+require __DIR__ . '/admin/admin.php';
 
 
 

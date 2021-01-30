@@ -19,7 +19,7 @@ Variables disponibles
                             <h2>{{ $post->title }}</h2>
                         </div>
                         <div class="single-post-image">
-                            <img src="{{ asset('assets/img/blog/' . $post->image) }}.jpg" alt="{{ $post->title }}">
+                            <img src="{{ asset('assets/img/blog/' . $post->image) }}" alt="{{ $post->title }}">
                         </div>
                         <div class="single-post-info">
                             <i class="glyphicon glyphicon-time"></i>

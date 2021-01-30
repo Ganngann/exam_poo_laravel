@@ -10,7 +10,7 @@ Variable disponible
         </div>
 
         <div class="single-post-image">
-            <img src="{{ asset('assets/img/blog/' . $post->image) }}.jpg" alt="{{ $post->title }}">
+            <img src="{{ asset('assets/img/blog/' . $post->image) }}" alt="{{ $post->title }}">
         </div>
 
         <div class="single-post-info">
@@ -20,7 +20,7 @@ Variable disponible
 
         <div class="single-post-content">
             <p>
-                {!! Str::words($post->content, 20,) !!}
+                {!! Str::words($post->content, 100,) !!}
             </p>
             <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}"
                 class="btn">Read more</a>

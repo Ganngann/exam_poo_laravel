@@ -13,8 +13,7 @@ class CategorieSeeder extends Seeder
      */
     public function run()
     {
-        // Categorie::factory()
-        //     ->count(50)
-        //     ->create();
+        \App\Models\Categorie::factory(10)->create();
+
     }
 }

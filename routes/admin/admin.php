@@ -12,20 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\PostController;
+
+require __DIR__ . '/post.php';
+
+
+
 
 
 
 Route::get('/dashboard', function () {
-    return view('back.dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/dashboard/posts/create', [PostController::class, 'create'])->middleware(['auth'])->name('posts.create');
 
-// Route::post('/dashboard/posts/store', [
-//     'uses' => 'PostController@store'
-// ]);
 
-Route::post('/dashboard/posts/store', [PostController::class, 'store'])->name('posts.store');
 

@@ -15,4 +15,8 @@ class Post extends Model
     public function categorie(){
         return $this->belongsTo('App\Models\Categorie');
     }
+
+    protected $fillable = [
+		'title', 'content','image', 'categorie_id',
+	];
 }
