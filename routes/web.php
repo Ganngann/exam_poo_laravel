@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-include 'posts.php';
-include 'works.php';
+require __DIR__ . '/posts.php';
+require __DIR__ . '/works.php';
+require __DIR__ . '/back.php';
 
 
 
@@ -35,12 +36,15 @@ Route::get('/contact', function () {return view('pages.contact');})->name('pages
 
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::get('/old', function () {
+    return view('welcome');
+});
+
+
+
+
+
+require __DIR__ . '/auth.php';
+
