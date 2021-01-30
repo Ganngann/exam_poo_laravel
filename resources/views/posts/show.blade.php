@@ -16,7 +16,7 @@ Variables disponibles
                 <div class="col-sm-8">
                     <div class="blog-post blog-single-post">
                         <div class="single-post-title">
-                            <h2>{{ $post->title }}  id = {{ $post->id }}</h2>
+                            <h2>{{ $post->title }}</h2>
                         </div>
                         <div class="single-post-image">
                             <img src="{{ asset('assets/img/blog/' . $post->image) }}.jpg" alt="{{ $post->title }}">
@@ -38,11 +38,4 @@ Variables disponibles
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
 @endsection
