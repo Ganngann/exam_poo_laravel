@@ -45,7 +45,7 @@ Variables disponibles
         <div class="container">
             <div class="row">
                 <!-- Featured News -->
-                <div class="col-sm-6 featured-news">
+                <div class="col-sm-4 featured-news">
                     <h2>Latest Blog Posts</h2>
                     @php
                     $posts = \App\Models\Post::orderBy('created_at', 'DESC')->take(3)->get()
@@ -58,56 +58,33 @@ Variables disponibles
                 <!-- End Featured News -->
 
                 <!-- Latest News FB -->
-                <div class="col-sm-6 latest-news">
-                    <h2>Lastest FaceBook/Twitter News</h2>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="caption">
-                                <a href="full-width.html">Donec elementum mi vitae enim
-                                    fermentum lobortis.</a>
-                            </div>
-                            <div class="date">16 May 2013</div>
-                            <div class="intro">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et.
-                                <a href="full-width.html">Read more...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="caption">
-                                <a href="full-width.html">In hac habitasse platea
-                                    dictumst.</a>
-                            </div>
-                            <div class="date">14 May 2013</div>
-                            <div class="intro">
-                                Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <a href="full-width.html">Read more...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="caption">
-                                <a href="full-width.html">
-                                    Nam condimentum laoreet sagittis.</a>
-                            </div>
-                            <div class="date">14 May 2013</div>
-                            <div class="intro">
-                                Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <a href="full-width.html">Read more...</a>
-                            </div>
-                        </div>
+                <div class="col-sm-4 latest-news">
+                    <h2>Lastest Twitter News</h2>
+                    <a class="twitter-timeline" data-theme="light" href="https://twitter.com/gannbe?ref_src=twsrc%5Etfw">
+                        Tweets by gannbe
+                    </a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="col-sm-4 latest-news">
+                    <h2>Lastest FaceBook News</h2>
+                    <div class="fb-page" data-href="https://www.facebook.com/biobombaye" data-tabs="timeline" data-width=""
+                        data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                        data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/biobombaye" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/biobombaye">Marché bio Bombaye</a></blockquote>
                     </div>
                 </div>
+
                 <!-- End Featured News -->
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('scripts')
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v9.0&appId=254591571867363" nonce="IZrtAcpX">
+    </script>
 @endsection
