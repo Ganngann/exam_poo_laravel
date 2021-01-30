@@ -4,21 +4,28 @@ Variable disponible
 --}}
 
 
+
+
+
+
 <div class="section">
     <div class="container">
         <div class="row">
 
-    <ul class="grid cs-style-2">
-        @each('works._card_4', $works, 'work')
+            <ul class="grid cs-style-2" id="moreBTNList">
+                {{-- @each('works._card_4', $works, 'work') --}}
+                @include('works._list_el')
 
 
-    </ul>
+            </ul>
 
 
         </div>
 
         <ul class="pager">
-          <li><a href="#">More works</a></li>
+            <li>
+                <a href="#" id="moreBTN" data-url="{{ route('works.ajax.more') }}" data-limit="3">More works</a>
+            </li>
         </ul>
 
     </div>

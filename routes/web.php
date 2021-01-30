@@ -30,11 +30,11 @@ Route::get('/', function () {return view('pages.home');})->name('home');
 // ACTION: index
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
-// AJAX MORE POSTS
-// PATTERN: /posts/ajax/more
-// CTRL: Posts
+// AJAX MORE WORKS
+// PATTERN: /works/ajax/more
+// CTRL: works
 // ACTION: more
-// Route::get('/posts/ajax/more/', [PostController::class, 'more'])->name('posts.ajax.more');
+Route::get('/works/ajax/more/', [workController::class, 'more'])->name('works.ajax.more');
 
 // DETAILS D'UN POST
 // PATTERN: /posts/post/slug
