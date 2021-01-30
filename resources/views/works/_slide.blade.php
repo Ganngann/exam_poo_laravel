@@ -2,13 +2,15 @@
 Variable disponible
 - $works ARRAY(Work)
 --}}
-
+@php
+$works = \App\Models\Work::where('inSlider', 1)->orderBy('created_at', 'DESC')->take(9)->get()
+@endphp
 <section id="main-slider" class="no-margin">
     <div class="carousel slide">
         <ol class="carousel-indicators">
-            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-            <li data-target="#main-slider" data-slide-to="1"></li>
-            <li data-target="#main-slider" data-slide-to="2"></li>
+            @foreach ($works as $i => $work)
+            <li data-target="#main-slider" data-slide-to="{{$i}}" <?php if ($i == 0) { echo 'class="active"' ; } ?>></li>
+            @endforeach
         </ol>
         <div class="carousel-inner">
             {{-- <div class="item active" style="background-image: url(img/slides/1.jpg)">
@@ -33,9 +35,7 @@ Variable disponible
                 </div>
             </div> --}}
             <!--/.item-->
-            @php
-            $works = \App\Models\Work::where('inSlider', 1)->orderBy('created_at', 'DESC')->take(4)->get()
-            @endphp
+
             @each('works._slide_item', $works, 'work')
 
         </div>
