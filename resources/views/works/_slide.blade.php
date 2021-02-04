@@ -3,7 +3,7 @@ Variable disponible
 - $works ARRAY(Work)
 --}}
 @php
-$works = \App\Models\Work::where('inSlider', 1)->orderBy('created_at', 'DESC')->take(9)->get()
+$works = \App\Models\Work::where('inSlider', 1)->orderBy('created_at', 'DESC')->get()
 @endphp
 <section id="main-slider" class="no-margin">
     <div class="carousel slide">
