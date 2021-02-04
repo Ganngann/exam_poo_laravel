@@ -1,11 +1,12 @@
 
 {{--
   Variables disponibles
-    - $categories ARRAY(Categorie)
+    - $tags ARRAY(Tag)
 --}}
 
 @php
-  $categories = \App\Models\Categorie::orderBy('name', 'ASC')->get();
+  $tags = \App\Models\Tag::orderBy('name', 'ASC')->get();
+  $clients = \App\Models\Client::orderBy('name', 'ASC')->get();
 @endphp
 
 <x-app-layout>
@@ -43,9 +44,20 @@
                     </div>
                 </div>
                 <div class="mb-2">
-                    <select name="categorie_id" id="categorie_id" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
-                        @foreach ($categories as $categorie)
-                            <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                    <fieldset>
+                    {{-- <select name="tags" id="tags" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"> --}}
+                        @foreach ($tags as $tag)
+                            {{-- <option value="{{ $tag->id }}">{{ $tag->name }}</option> --}}
+                            <input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}<br>
+
+                        @endforeach
+
+                </fieldset>
+                </div>
+                <div class="mb-2">
+                    <select name="client_id" id="client_id" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
+                        @foreach ($clients as $client)
+                            <option value="{{ $client->id }}">{{ $client->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -58,6 +70,8 @@
                     </div>
                 </div>
             </div>
+            <label for="inSlider">In slider</label>
+            {!! Form::checkbox("inSlider", "1", "checked", ["options"]) !!}
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <button type="submit"
                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

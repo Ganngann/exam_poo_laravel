@@ -23,4 +23,8 @@ class Work extends Model
         return $this->belongsToMany('App\Models\Tag', 'works_has_tags');
       }
 
+      protected $fillable = [
+		'title', 'content','image','inSlider','client_id',
+	];
+
 }
