@@ -5,7 +5,7 @@ Variable disponible
 
 
 <figure>
-    <img src="{{ asset('assets/img/portfolio/' . $work->image) }}.jpg" alt="{{ $work->title }}">
+    <img src="{{ asset('assets/img/portfolio/' . $work->image) }}" alt="{{ $work->title }}">
     <figcaption>
         <h3>{{ $work->title }}</h3>
         <span>{{ $work->client->name }}</span>

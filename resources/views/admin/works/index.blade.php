@@ -57,14 +57,15 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 w-32">
-                                                <img class="" src="{{ asset('assets/img/portfolio/' . $work->image) }}"
+                                                <img class=""
+                                                    src="{{ asset('assets/img/portfolio/' . $work->image) }}"
                                                     alt="{{ $work->image }}">
                                             </div>
                                             {{-- <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                {{ $work->title }}
-                                            </div>
-                                        </div> --}}
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ $work->inSlide }}
+                                                </div>
+                                            </div> --}}
                                         </div>
                                         <div class="text-gray-500 text-xs">{{ $work->image }}</div>
 
@@ -76,14 +77,16 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{-- <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        {{ $work->image }}
-                                    </span> --}}
                                         <div class="text-sm text-gray-900">{!! Str::of($work->content)->limit(400) !!}
                                         </div>
                                     </td>
                                     <td class="text-sm text-gray-500 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            @if ($work->inSlider == 1)
+                                                in slider
+                                            @endif
+                                        </span>
                                         <div class="text-sm text-gray-500">Id : {{ $work->id }}
                                         </div>
                                         <div class="text-sm text-gray-500">Created :

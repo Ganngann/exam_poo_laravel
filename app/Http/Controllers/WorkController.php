@@ -78,7 +78,6 @@ class WorkController extends Controller
             'client_id' => 'required',
             'content' => 'required',
             'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048'
-            // 'categorie_id' => 'required'
         ]);
 
         if ($request->hasFile('image')) :
@@ -93,29 +92,8 @@ class WorkController extends Controller
         else :
             $imageName = 'workDefault.jpg';
         endif;
-        // dd($request);
 
-        // $work = new work;
-        // $work->title = $request->title;
-        // $work->client_id = $request->client_id;
-        // $work->content = $request->content;
-        // $work->inSlider = $request->inSlider;
-        // $work->image = $imageName;
-
-
-        // dd($request->tags);
-
-
-        Work::create($request->only(['title', 'client_id', 'content', 'inSlider',]) + ['image' => $imageName])->tags()->sync($request->tags, false);
-
-        // $work->save();
-
-        // $work->tags = $request->tags;
-
-
-        // $work->tags()->sync($request->tags, false);
-
-
+        Work::create($request->only(['title', 'client_id', 'content', 'inSlider',]) + ['image' => $imageName])->tags()->sync($request->tags);
         return redirect()->route('admin.works.index');
     }
 
@@ -138,7 +116,7 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.works.edit', compact('work'));
     }
 
     /**
@@ -150,7 +128,30 @@ class WorkController extends Controller
      */
     public function update(Request $request, Work $work)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'client_id' => 'required',
+            'content' => 'required',
+            'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        // dd($request);
+
+        if ($request->hasFile('image')) :
+            // On renomme l'image avec le timestamp UNIX actuel + l'extension
+            $imageName = time() . '.' . $request->image->extension();
+            // On enregistre l'image dans le storage Laravel
+            $request->image->storeAs('works/images', $imageName);
+            // On déplace l'image du storage Laravel vers son emplacement public
+            $request->image->move(public_path('assets/img/portfolio'), $imageName);
+            // On utilise $request->only au lieu de $request->all pour enregistrer le nom de l'image dans la db au lieu de son temporary name
+            // Exemple: on obtient ça 1612360218.jpg au lieu de tmp/phpUrlmh
+            $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]) + ['image' => $imageName]);
+        else :
+            // $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]))->tags()->sync($request->tags);
+            $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]));
+        endif;
+        $work->tags()->sync($request->tags);
+        return redirect()->route('admin.works.index');
     }
 
     /**

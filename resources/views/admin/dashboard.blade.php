@@ -47,5 +47,21 @@
         </div>
     </div>
     </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class="row  bg-white px-4 py-4">
+        <!-- Featured News -->
+        <h2 class="text-gray-500 text-2xl">Latest Blog Posts</h2>
+        <div class="grid  grid-rows-1 grid-cols-4 gap-4">
+
+            @php
+            $works = \App\Models\Work::orderBy('created_at', 'DESC')->take(4)->get()
+            @endphp
+            @each('works._card_3', $works, 'work')
+        </div>
+    </div>
+    </div>
+
 </div>
 </x-app-layout>

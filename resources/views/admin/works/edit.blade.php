@@ -3,7 +3,8 @@
     - $categories ARRAY(Categorie) --}}
 
 @php
-$categories = \App\Models\Categorie::orderBy('name', 'ASC')->get();
+$tags = \App\Models\Tag::orderBy('name', 'ASC')->get();
+$clients = \App\Models\Client::orderBy('name', 'ASC')->get();
 @endphp
 
 <x-app-layout>
@@ -25,9 +26,8 @@ $categories = \App\Models\Categorie::orderBy('name', 'ASC')->get();
                                 Titre
                             </label>
                             <div class="mt-1 flex rounded-md shadow-sm">
-                                <input type="text" name="title" id="title" value="{{ $work->title }}"
-                                    class=" focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full
-                                    rounded-md sm:text-sm border-gray-300" placeholder="Votre titre">
+                                <input type="text" name="title" id="title" value="{{ $work->title }}" class=" focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full
+                                rounded-md sm:text-sm border-gray-300" placeholder="Votre titre">
                             </div>
                         </div>
                     </div>
@@ -41,32 +41,76 @@ $categories = \App\Models\Categorie::orderBy('name', 'ASC')->get();
                                 placeholder="Votre article">{{ $work->content }}</textarea>
                         </div>
                     </div>
+                    {{-- <div class="mb-2"> --}}
+                    <fieldset
+                        class="flex flex-wrap space-x-3 gap-1 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
+                        {{-- <select name="tags" id="tags" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"> --}}
+
+
+
+                        @php
+                            $tagList = [];
+                        @endphp
+                        @php
+                            foreach ($work->tags as $key => $tag) {
+                                array_push($tagList, $tag->id);
+                            }
+                        @endphp
+                        @foreach ($tags as $tag)
+                            {{-- <option value="{{ $tag->id }}">{{ $tag->name }}</option> --}}
+                            <div>
+                                <input class="border-gray-300 rounded-md" type="checkbox" name="tags[]"
+                                    value="{{ $tag->id }}" <?php if (in_array($tag->id, $tagList)) {
+                                echo 'checked';
+                                } ?> > {{ $tag->name }}<br>
+
+                            </div>
+
+                        @endforeach
+
+                    </fieldset>
+                    {{-- </div> --}}
                     <div class="mb-2">
-                        <select name="categorie_id" id="categorie_id" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
-                            @foreach ($categories as $categorie)
-                                <option value="{{ $categorie->id }}" <?php if ($categorie->id ===
-                                    $work->categorie_id) {
+                        <select name="client_id" id="client_id"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
+                            @foreach ($clients as $client)
+                                <option value="{{ $client->id }}" <?php if ($client->id ===
+                                    $work->client_id) {
                                     echo 'selected';
-                                    } ?>>{{ $categorie->name }}</option>
+                                    } ?>>{{ $client->name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div>
-                        <div>
-                            <label for="image">Image</label>
-                        </div>
-                        <div class="mb-2">
-                            <input type="file" name="image" id="image" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        </div>
+                    <div
+                        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
+                        <label for="image">Image</label>
+
+
+                        <input type="file" name="image" id="image">
+
+
                     </div>
-                </div>
-                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Enregistrer
-                    </button>
+                    <fieldset
+                        class="flex flex-wrap space-x-3 gap-1 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
+                        <div>
+                            <input type="hidden" name="inSlider" value="0">
+                            <input class="border-gray-300 rounded-md" type="checkbox" name="inSlider" value="1" <?php if ($work->inSlider == 1) {
+                                echo 'checked';}
+                                ?>> In
+                            slider
+                        </div>
+                    </fieldset>
+                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <button type="submit"
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Enregistrer
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
+
+
 </x-app-layout>
