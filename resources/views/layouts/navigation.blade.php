@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('admin.posts.index')" :active="request()->routeIs('admin.posts.index')">
                         {{ __('Posts') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.works.index')" :active="request()->routeIs('admin.works.index')">
+                        {{ __('Works') }}
+                    </x-nav-link>
                 </div>
             </div>
 

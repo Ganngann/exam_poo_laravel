@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__ . '/post.php';
+require __DIR__ . '/posts.php';
+require __DIR__ . '/works.php';
 
 
 

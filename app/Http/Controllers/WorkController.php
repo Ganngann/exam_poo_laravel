@@ -21,6 +21,41 @@ class WorkController extends Controller
     }
 
     /**
+     * Display a listing of the resource for ajax.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function more(Request $request)
+    {
+
+        $limit = (isset($request->limit)) ? $request->limit : 10;
+
+        $works = Work::orderBy('created_at', 'desc')
+            ->take($limit)
+            ->offset($request->offset)
+            ->get();
+        return view('works._list_el', compact('works'));
+    }
+
+
+    /**
+     * Display a listing of the resource for back office.
+     *
+     * @param  integer $limit [description]
+     * @return \Illuminate\Http\Response
+     */
+    public function adminIndex(INT $limit = 10)
+    {
+        // $works = Post::orderBy('created_at', 'desc')
+        //             -> take($limit)
+        //             -> get();
+        $works = Work::orderBy('created_at', 'desc')->simplePaginate($limit);
+        return view('admin.works.index', compact('works'));
+    }
+
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -83,18 +118,8 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
-        //
+        $work->tags()->detach();
+        $work->delete();
+        return redirect()->route('admin.works.index');
     }
-
-    public function more(Request $request) {
-
-        $limit = (isset($request->limit)) ? $request->limit : 10;
-
-        $works = Work::orderBy('created_at', 'desc')
-                     ->take($limit)
-                     ->offset($request->offset)
-                     ->get();
-        return view('works._list_el', compact('works'));
-      }
-
 }

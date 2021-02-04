@@ -13,6 +13,6 @@ class WorkSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Work::factory(40)->create();
     }
 }
