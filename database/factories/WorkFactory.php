@@ -28,7 +28,7 @@ class WorkFactory extends Factory
             // 'image' => $this->faker->image(storage_path('assets\img\portfolio'),640,480, null, false),
             'inSlider' => $this->faker->numberBetween($min = 0, $max = 1),
             'created_at' => $this->faker->dateTimeBetween('-20 days', now()),
-            'client_id' => $this->faker->numberBetween($min = 1, $max = 5),
+            'client_id' => $this->faker->numberBetween($min = 1, $max = 10),
         ];
     }
 }
