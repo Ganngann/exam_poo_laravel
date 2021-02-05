@@ -19,9 +19,6 @@ class PostController extends Controller
      */
     public function index(INT $limit = 4)
     {
-        // $posts = Post::orderBy('created_at', 'desc')
-        //             -> take($limit)
-        //             -> get();
         $posts = Post::orderBy('created_at', 'desc')->paginate($limit);
         return view('posts.index', compact('posts'));
     }
@@ -34,9 +31,6 @@ class PostController extends Controller
      */
     public function adminIndex(INT $limit = 10)
     {
-        // $posts = Post::orderBy('created_at', 'desc')
-        //             -> take($limit)
-        //             -> get();
         $posts = Post::orderBy('created_at', 'desc')->simplePaginate($limit);
         return view('admin.posts.index', compact('posts'));
     }
@@ -76,12 +70,11 @@ class PostController extends Controller
             $request->image->storeAs('posts/images', $imageName);
             // On déplace l'image du storage Laravel vers son emplacement public
             $request->image->move(public_path('assets/img/blog'), $imageName);
-        // On utilise $request->only au lieu de $request->all pour enregistrer le nom de l'image dans la db au lieu de son temporary name
-        // Exemple: on obtient ça 1612360218.jpg au lieu de tmp/phpUrlmh
         else :
             $imageName = 'postDefault.jpg';
         endif;
-
+        // On utilise $request->only au lieu de $request->all pour enregistrer le nom de l'image dans la db au lieu de son temporary name
+        // Exemple: on obtient ça 1612360218.jpg au lieu de tmp/phpUrlmh
         Post::create($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
         return redirect()->route('admin.posts.index');
     }
@@ -133,10 +126,9 @@ class PostController extends Controller
             $request->image->storeAs('posts/images', $imageName);
             // On déplace l'image du storage Laravel vers son emplacement public
             $request->image->move(public_path('assets/img/blog'), $imageName);
-        // On utilise $request->only au lieu de $request->all pour enregistrer le nom de l'image dans la db au lieu de son temporary name
-        // Exemple: on obtient ça 1612360218.jpg au lieu de tmp/phpUrlmh
-        $post->update($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
-        else:
+
+            $post->update($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
+        else :
             $post->update($request->only(['title', 'content', 'categorie_id']));
         endif;
 

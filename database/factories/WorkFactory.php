@@ -32,5 +32,3 @@ class WorkFactory extends Factory
         ];
     }
 }
-// tinker: \App\Models\Type::factory()->count(10)->has(\App\Models\Produit::factory()->count(2))->create()
-// tinker: \App\Models\Type::factory()->count(10)->hasProduits(2)->create()

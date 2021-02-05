@@ -12,9 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\Http\Controllers\WorkController;
-
-
 
 // AJAX MORE WORKS
 // PATTERN: /works/ajax/more

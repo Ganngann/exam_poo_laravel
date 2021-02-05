@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\PostController;
 
+use App\Http\Controllers\PostController;
 
 
 // LISTE DES POSTS
@@ -21,6 +21,7 @@ use App\Http\Controllers\PostController;
 // CTRL: PostController
 // ACTION: index
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
 
 // DETAILS D'UN POST
 // PATTERN: /posts/post/slug

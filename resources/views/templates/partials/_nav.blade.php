@@ -15,6 +15,7 @@
                 <li class="{{ Route::currentRouteName() == 'works.index' ? 'active' : '' }}"><a href="{{ route('works.index') }}">Portfolio</a></li>
                 <li class="{{ Route::currentRouteName() == 'posts.index' ? 'active' : '' }}"><a href="{{ route('posts.index') }}">Blog</a></li>
                 <li class="{{ Route::currentRouteName() == 'pages.contact' ? 'active' : '' }}"><a href="{{ route('pages.contact') }}">Contact</a></li>
+                <li class="{{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}"><a href="{{ route('dashboard') }}">Dashboard</a></li>
             </ul>
         </div>
     </div>

@@ -13,38 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__ . '/posts.php';
-require __DIR__ . '/works.php';
-require __DIR__ . '/admin/admin.php';
-
-
 
 // ROUTE PAR DEFAUT
 // PATTERN: /
 // CTRL: NA
 // ACTION: NA
-Route::get('/', function () {return view('pages.home');})->name('home');
+Route::get('/', function () {
+    return view('pages.home');
+})->name('home');
 
 
 // CONTACT PAGE
 // PATTERN: /contact
 // CTRL: NA
 // ACTION: NA
-Route::get('/contact', function () {return view('pages.contact');})->name('pages.contact');
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('pages.contact');
 
 
-
-
-
-
-
-Route::get('/old', function () {
-    return view('welcome');
-});
-
-
-
-
-
+// routeurs suplémentaires
 require __DIR__ . '/auth.php';
-
+require __DIR__ . '/admin/admin.php';
+require __DIR__ . '/posts.php';
+require __DIR__ . '/works.php';

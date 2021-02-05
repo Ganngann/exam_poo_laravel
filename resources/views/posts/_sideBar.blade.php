@@ -11,8 +11,6 @@ Variables disponibles
         @include('posts._recents', ['posts' => \App\Models\Post::orderBy('created_at', 'DESC')->take(5)->get()])
     </ul>
 
-    {{-- @include('categories._index', ['categories' => \App\Models\Categorie::orderBy('name', 'ASC')->get()]) --}}
-
     <h4>Categories</h4>
     <ul class="blog-categories">
         @include('categories._index', ['categories' => \App\Models\Categorie::orderBy('name', 'ASC')->get()])

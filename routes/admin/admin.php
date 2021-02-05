@@ -16,16 +16,6 @@ use Illuminate\Support\Facades\Route;
 require __DIR__ . '/posts.php';
 require __DIR__ . '/works.php';
 
-
-
-
-
-
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-
-
-
-

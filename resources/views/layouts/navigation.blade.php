@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('admin.works.index')" :active="request()->routeIs('admin.works.index')">
                         {{ __('Works') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Public home') }}
+                    </x-nav-link>
                 </div>
             </div>
 

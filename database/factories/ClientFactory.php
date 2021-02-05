@@ -22,7 +22,6 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' => $this->faker->name,
             'name' => $this->faker->words(2,true),
             'created_at' => $this->faker->dateTimeBetween('-20 days', now()),
         ];

@@ -1,5 +1,5 @@
 $(function () {
-    let myvar = false;
+    let enAtenteDuServeur = false;
 
     $("#moreBTN").click(function (e) {
         e.preventDefault();
@@ -25,7 +25,7 @@ $(function () {
                     .find(".col-md-4:nth-last-of-type(-n+" + limit + ")")
                     .addClass("collapse")
                     .fadeIn("slow");
-                myvar = false;
+                enAtenteDuServeur = false;
             }
         );
     });
@@ -34,9 +34,9 @@ $(function () {
         if (
             $(window).scrollTop() + $(window).height() >
                 $(document).height() - 100 &&
-            myvar == false
+            enAtenteDuServeur == false
         ) {
-            myvar = true;
+            enAtenteDuServeur = true;
             $("#moreBTN").click();
         }
     });

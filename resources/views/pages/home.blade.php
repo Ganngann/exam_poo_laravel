@@ -1,8 +1,6 @@
-{{--
-Variables disponibles
+{{-- Variables disponibles
 - $works ARRAY(Work)
-- $posts ARRAY(Post)
---}}
+- $posts ARRAY(Post) --}}
 
 @extends('templates.index')
 
@@ -27,10 +25,11 @@ Variables disponibles
                 <div class="section-title">
                     <h1>Our Recent Works</h1>
                 </div>
-
                 <ul class="grid cs-style-3">
                     @php
-                    $works = \App\Models\Work::orderBy('created_at', 'DESC')->take(6)->get()
+                        $works = \App\Models\Work::orderBy('created_at', 'DESC')
+                            ->take(6)
+                            ->get();
                     @endphp
                     @each('works._card_4', $works, 'work')
                 </ul>
@@ -48,12 +47,11 @@ Variables disponibles
                 <div class="col-sm-4 featured-news">
                     <h2>Latest Blog Posts</h2>
                     @php
-                    $posts = \App\Models\Post::orderBy('created_at', 'DESC')->take(3)->get()
+                        $posts = \App\Models\Post::orderBy('created_at', 'DESC')
+                            ->take(3)
+                            ->get();
                     @endphp
                     @each('posts._media_object', $posts, 'post')
-                    {{-- @each('posts._recent', $posts, 'post')
-                    --}}
-
                 </div>
                 <!-- End Featured News -->
 

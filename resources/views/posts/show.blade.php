@@ -24,7 +24,7 @@ Variables disponibles
                         <div class="single-post-info">
                             <i class="glyphicon glyphicon-time"></i>
                             {{ \Carbon\Carbon::parse($post->created_at)->format('d M, Y') }}
-                            <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11 </a>#TODO comments
+                            {{-- <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11 </a>#TODO comments --}}
                         </div>
                         <div class="single-post-content">
                             <p>

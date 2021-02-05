@@ -1,7 +1,5 @@
-{{--
-Variables disponibles
-- $work Work
---}}
+{{-- Variables disponibles
+- $work Work --}}
 @extends('templates.page')
 
 @section('title')

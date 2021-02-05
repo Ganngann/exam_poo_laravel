@@ -27,9 +27,7 @@ class WorkController extends Controller
      */
     public function more(Request $request)
     {
-
         $limit = (isset($request->limit)) ? $request->limit : 10;
-
         $works = Work::orderBy('created_at', 'desc')
             ->take($limit)
             ->offset($request->offset)
@@ -46,9 +44,6 @@ class WorkController extends Controller
      */
     public function adminIndex(INT $limit = 10)
     {
-        // $works = Work::orderBy('created_at', 'desc')
-        //             -> take($limit)
-        //             -> get();
         $works = Work::orderBy('created_at', 'desc')->simplePaginate($limit);
         return view('admin.works.index', compact('works'));
     }
@@ -134,7 +129,6 @@ class WorkController extends Controller
             'content' => 'required',
             'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        // dd($request);
 
         if ($request->hasFile('image')) :
             // On renomme l'image avec le timestamp UNIX actuel + l'extension
@@ -143,11 +137,9 @@ class WorkController extends Controller
             $request->image->storeAs('works/images', $imageName);
             // On déplace l'image du storage Laravel vers son emplacement public
             $request->image->move(public_path('assets/img/portfolio'), $imageName);
-            // On utilise $request->only au lieu de $request->all pour enregistrer le nom de l'image dans la db au lieu de son temporary name
-            // Exemple: on obtient ça 1612360218.jpg au lieu de tmp/phpUrlmh
+
             $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]) + ['image' => $imageName]);
         else :
-            // $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]))->tags()->sync($request->tags);
             $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]));
         endif;
         $work->tags()->sync($request->tags);
